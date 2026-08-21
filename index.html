@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wetter-App</title>
+    <link rel="stylesheet" href="./style/fonts.css" />
+    <link rel="stylesheet" href="./style/standart.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1 class="title">Wetter-App</h1>
+      <button class="btn btn--icon dark-toggle">🌙</button>
+    </header>
+
+    <main>
+      <div class="container">
+        <div class="weather-app">
+          <div class="weather-app__search">
+            <input
+              type="text"
+              placeholder="Stadt eingeben"
+              class="weather-app__search-input"
+            />
+            <button class="weather-app__search-button btn btn--primary">
+              Suchen
+            </button>
+          </div>
+          <div class="weather-app__result"></div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p class="footer-txt">Wetterdaten von Open-Meteo</p>
+      <p class="copyright">&copy; 2026 Code von: Fabian Klemenz</p>
+    </footer>
+    <script src="./script/templates.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
