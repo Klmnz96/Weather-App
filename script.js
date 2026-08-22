@@ -11,7 +11,8 @@ function init() {
     let searchInputRef = document.getElementById("search-input");
     let searchInput = searchInputRef.value;
     const result = await getWeatherData(searchInput);
-    console.log(result);
+    const resultElement = document.getElementById("weather-app__result");
+    resultElement.innerHTML = renderWeatherTemplate(result);
   });
 }
 
