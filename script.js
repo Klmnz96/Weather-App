@@ -27,7 +27,12 @@ async function getWeatherData(city) {
       `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(city)}`,
     );
     const data = await fetchResponse.json();
-    return data;
+    const { latitude, longitude } = data.results[0];
+    const weatherResponse = await fetch(
+      `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,apparent_temperature,relative_humidity_2m,wind_speed_10m,weather_code`,
+    );
+    const weatherData = await weatherResponse.json();
+    return { cityName: data.results[0].name, weatherData };
   } catch (error) {
     console.error("Fehler beim Laden:", error);
   }
