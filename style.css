@@ -61,6 +61,11 @@ main {
   outline-offset: 2px;
 }
 
+.weather-app__placeholder {
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
 /* Result */
 
 .weather-app__result {
