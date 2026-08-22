@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="./style/standart.css" />
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
+  <body onload="init()">
     <header>
       <h1 class="title">Wetter-App</h1>
-      <button class="btn btn--icon dark-toggle">🌙</button>
+      <button class="btn btn--icon dark-toggle" id="dark-toggle">🌙</button>
     </header>
 
     <main>
@@ -27,7 +27,23 @@
               Suchen
             </button>
           </div>
-          <div class="weather-app__result"></div>
+          <div class="weather-app__result" id="weather-app__result">
+            <!-- Result will be displayed here -->
+            <div class="weather-app__city">
+              <h2 class="city-name" id="city-name">Funchal</h2>
+            </div>
+            <div class="weather-app__temperature" id="weather-app__temperature">
+              <p class="temperature" id="temperature">20°C</p>
+            </div>
+            <div class="weather-app__icon" id="weather-app__icon">
+              <img src="./assets/icons/sunny.svg" alt="Wettersymbol" />
+            </div>
+            <ul class="weather-app__details" id="weather-app__details">
+              <li class="weather-app__feels-like">Feels like: 22°C</li>
+              <li class="weather-app__humidity">Humidity: 60%</li>
+              <li class="weather-app__wind-speed">Wind: 10 km/h</li>
+            </ul>
+          </div>
         </div>
       </div>
     </main>

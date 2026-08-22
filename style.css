@@ -1,0 +1,111 @@
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-6) var(--space-8);
+}
+
+header .title {
+  font-size: 1.25rem;
+}
+
+/* Main / Card */
+
+main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+}
+
+.weather-app {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  width: 100%;
+  max-width: 26rem;
+  box-shadow: 0 20px 40px -20px rgba(139, 92, 246, 0.25);
+}
+
+/* Search */
+
+.weather-app__search {
+  display: flex;
+  gap: var(--space-3);
+  margin-bottom: var(--space-8);
+}
+
+.weather-app__search-input {
+  flex: 1;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+.weather-app__search-input:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Result */
+
+.weather-app__result {
+  text-align: center;
+}
+
+.weather-app__city .city-name {
+  font-size: 1.5rem;
+  margin-bottom: var(--space-2);
+}
+
+.weather-app__icon img {
+  width: 8rem;
+  height: 8rem;
+}
+
+.weather-app__temperature .temperature {
+  font-family: var(--font-heading);
+  font-size: 4rem;
+  font-weight: 600;
+  line-height: 1;
+  margin: var(--space-4) 0;
+}
+
+.weather-app__details {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-6);
+  list-style: none;
+  margin-top: var(--space-6);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+}
+
+/* Footer */
+
+footer {
+  text-align: center;
+  padding: var(--space-6);
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+}
+
+footer p {
+  margin: var(--space-1) 0;
+}
