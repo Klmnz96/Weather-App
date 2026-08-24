@@ -58,3 +58,7 @@ function getWeatherIcon(weatherCode) {
       return "./assets/icons/sunny.svg";
   }
 }
+
+function renderErrorTemplate(message) {
+  return `<p class="weather-app__placeholder">${message}</p>`;
+}

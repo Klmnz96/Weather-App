@@ -12,7 +12,11 @@ function init() {
     let searchInput = searchInputRef.value;
     const result = await getWeatherData(searchInput);
     const resultElement = document.getElementById("weather-app__result");
-    resultElement.innerHTML = renderWeatherTemplate(result);
+    if (result.error) {
+      resultElement.innerHTML = renderErrorTemplate(result.error);
+    } else {
+      resultElement.innerHTML = renderWeatherTemplate(result);
+    }
   });
 }
 
@@ -28,6 +32,9 @@ async function getWeatherData(city) {
       `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(city)}`,
     );
     const data = await fetchResponse.json();
+    if (!data.results || data.results.length === 0) {
+      return { error: "Stadt nicht gefunden" };
+    }
     const { latitude, longitude } = data.results[0];
     const weatherResponse = await fetch(
       `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,apparent_temperature,relative_humidity_2m,wind_speed_10m,weather_code`,
@@ -36,5 +43,6 @@ async function getWeatherData(city) {
     return { cityName: data.results[0].name, weatherData };
   } catch (error) {
     console.error("Fehler beim Laden:", error);
+    return { error: "Keine Internetverbinung oder Serverfehler" };
   }
 }
