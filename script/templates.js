@@ -6,7 +6,8 @@ function renderWeatherTemplate(weatherResult) {
     <p class="temperature" id="temperature"> ${weatherResult.weatherData.current.temperature_2m}°C</p>
     </div>
     <div class="weather-app__icon" id="weather-app__icon">
-    <img src="${getWeatherIcon(weatherResult.weatherData.current.weather_code)}" alt="Wettersymbol" />
+    <model-viewer
+    src="${getWeatherModel(weatherResult.weatherData.current.weather_code)}" alt="Wettersymbol" camera-controls auto-rotate exposure="1.2" shadow-intensity="1" enviroment-image="neutral" camera-orbit="0deg 75deg 1m"></model-viewer>
     </div>
     <ul class="weather-app__details" id="weather-app__details">
     <li class="weather-app__feels-like">Feels like: ${weatherResult.weatherData.current.apparent_temperature}°C</li>
@@ -16,24 +17,24 @@ function renderWeatherTemplate(weatherResult) {
     </div>`;
 }
 
-function getWeatherIcon(weatherCode) {
+function getWeatherModel(weatherCode) {
   switch (weatherCode) {
     case 0:
-      return "./assets/icons/sunny.svg";
+      return "./assets/models/sun.glb";
     case 1:
     case 2:
-      return "./assets/icons/partly-cloudy.svg";
+      return "./assets/models/cloud.glb";
     case 3:
-      return "./assets/icons/cloudy.svg";
+      return "./assets/models/cloud.glb";
     case 45:
     case 48:
-      return "./assets/icons/fog.svg";
+      return "./assets/models/cloud.glb";
     case 51:
     case 53:
     case 55:
     case 56:
     case 57:
-      return "./assets/icons/drizzle.svg";
+      return "./assets/models/rain.glb";
     case 61:
     case 63:
     case 65:
@@ -42,20 +43,20 @@ function getWeatherIcon(weatherCode) {
     case 80:
     case 81:
     case 82:
-      return "./assets/icons/rain.svg";
+      return "./assets/models/rain.glb";
     case 71:
     case 73:
     case 75:
     case 77:
     case 85:
     case 86:
-      return "./assets/icons/snow.svg";
+      return "./assets/models/snow.glb";
     case 95:
     case 96:
     case 99:
-      return "./assets/icons/thunderstorm.svg";
+      return "./assets/models/lightning.glb";
     default:
-      return "./assets/icons/sunny.svg";
+      return "./assets/models/sun.glb";
   }
 }
 

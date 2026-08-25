@@ -77,9 +77,11 @@ main {
   margin-bottom: var(--space-2);
 }
 
-.weather-app__icon img {
+.weather-app__icon model-viewer {
   width: 8rem;
   height: 8rem;
+  display: block;
+  margin: 0 auto;
 }
 
 .weather-app__temperature .temperature {
